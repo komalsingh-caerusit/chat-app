@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/rooms")
 @RequiredArgsConstructor
+@CrossOrigin("http://localhost:3000")
 public class RoomController {
     private final RoomRepository roomRepository;
 
@@ -24,7 +25,6 @@ public class RoomController {
         Room room = new Room();
         room.setRoomId(roomId);
         Room savedRoom = roomRepository.save(room);
-        System.out.println("Komalllll"+savedRoom.getRoomId()+" "+savedRoom.getId()+" " + savedRoom.getMessages());
         return ResponseEntity.status(HttpStatus.CREATED).body(savedRoom);
     }
 
