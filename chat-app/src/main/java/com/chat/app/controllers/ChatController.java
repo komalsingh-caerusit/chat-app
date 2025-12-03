@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 @CrossOrigin("http://localhost:3000")
 public class ChatController {
-    private RoomRepository roomRepository;
+    private final RoomRepository roomRepository;
 
     @MessageMapping("/sendMessage/{roomId}")
     @SendTo("/topic/room/{roomId}")

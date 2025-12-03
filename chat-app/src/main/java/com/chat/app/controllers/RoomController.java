@@ -32,7 +32,7 @@ public class RoomController {
     public ResponseEntity<?> joinRoom(@PathVariable String roomId){
         Room room = roomRepository.findByRoomId(roomId);
         if(room == null){
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Room not found");
         }
 
         return ResponseEntity.ok(room);
